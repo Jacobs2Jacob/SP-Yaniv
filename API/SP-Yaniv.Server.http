@@ -1,0 +1,6 @@
+@SP_Yaniv.Server_HostAddress = http://localhost:5237
+
+GET {{SP_Yaniv.Server_HostAddress}}/yanivApp/
+Accept: application/json
+
+###
