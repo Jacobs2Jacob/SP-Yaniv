@@ -125,6 +125,7 @@ const App = () => {
                         type="text"
                         id="pictureName"
                         name="pictureName"
+                        maxLength={50}
                         value={formData.pictureName}
                         onChange={handleChange}
                     />
@@ -154,6 +155,7 @@ const App = () => {
                     <textarea
                         id="description"
                         name="description"
+                        maxLength={250}
                         value={formData.description}
                         onChange={handleChange}
                     />
