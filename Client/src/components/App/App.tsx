@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { cloneDeep } from "lodash";
-import './App.css';
-import { getImages, uploadImage } from '../services/image.service';
-import { Image } from '../entities/image';
-import { UploadImageRequest } from '../interfaces'; 
-import Modal from './Modal';
+import styles from './App.module.css';
+import { getImages, uploadImage } from '../../services/image.service';
+import { Image } from '../../entities/image';
+import { UploadImageRequest } from '../../interfaces'; 
+import Modal from '../Modal/Modal';
  
 const App = () => {
     const [images, setImages] = useState<Image[]>([]);
@@ -88,13 +88,13 @@ const App = () => {
     }, []);
      
     return (
-        <div className="container">
+        <div className='container'>
 
             {/* File List */}
-            <div className="file-list col-4">
+            <div className={`${styles.fileList} col-4`}>
                 <label style={{ margin: '0 auto' }}>File List</label>
                 {images.map((m) => (
-                    <div key={m.id} className="file-list-item">
+                    <div key={m.id} className={styles.fileListItem}>
                         <span className='col-4'>Id: {m.id}</span>
                         <span className='col-4'>Name: {m.name}</span>
                     </div>
@@ -106,7 +106,7 @@ const App = () => {
 
                 {/* File Input */}
                 <div className="form-group">
-                    <button className="submit-button" type='button' onClick={() => fileRef.current?.click()}>Picture Browser</button>
+                    <button className={styles.submitButton} type='button' onClick={() => fileRef.current?.click()}>Picture Browser</button>
                     <input
                         hidden
                         ref={fileRef}
@@ -165,8 +165,8 @@ const App = () => {
 
                 {/* Buttons */}
                 <div className="container">
-                    <button type="submit" className="submit-button col-4">Add Picture</button>
-                    <button className="submit-button col-4" type='reset' onClick={() => setModalVisible(true)}>Reset</button>
+                    <button type="submit" className={`${styles.submitButton} col-4`}>Add Picture</button>
+                    <button className={`${styles.submitButton} col-4`} type='reset' onClick={() => setModalVisible(true)}>Reset</button>
                 </div>
             </form> 
 

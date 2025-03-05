@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import styles from "./Modal.module.css";
 import { Id } from "react-toastify/unstyled";
 
 interface ModalProps {
@@ -22,11 +23,11 @@ const Modal = (props: ModalProps) => {
             setId(toast.info(
                 <div>
                     <p>{props.text}</p>
-                    <div style={buttonContainerStyle}>
-                        <button onClick={props.onSave} style={buttonStyle}>
+                    <div className={styles.buttonContainer}>
+                        <button onClick={props.onSave} className={styles.button}>
                             {props.saveBtnText}
                         </button>
-                        <button onClick={props.onCancel} style={buttonStyle}>
+                        <button onClick={props.onCancel} className={styles.button}>
                             {props.cancelBtnText}
                         </button>
                     </div>
@@ -45,22 +46,5 @@ const Modal = (props: ModalProps) => {
         </div>
     );
 };
-
-// Button styles
-const buttonStyle = {
-    padding: "10px 20px",
-    cursor: "pointer",
-    border: "none",
-    background: "#007bff",
-    color: "white",
-    borderRadius: "5px",
-};
-
-// Container for the buttons
-const buttonContainerStyle = {
-    display: "flex",
-    justifyContent: "space-evenly",
-    marginTop: "20px",
-};
-
+ 
 export default Modal;
